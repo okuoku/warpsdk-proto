@@ -5,7 +5,10 @@
 #  WARPSDK_LINKER
 include(${CMAKE_CURRENT_LIST_DIR}/../../protopaths.cmake)
 
-get_filename_component(WARPSDK_SYSROOT ${CMAKE_CURRENT_LIST_DIR}/../../../sysroot ABSOLUTE)
+get_filename_component(WARPSDK_ROOT ${CMAKE_CURRENT_LIST_DIR}/../../../sysroot ABSOLUTE)
+set(WARPSDK_SYSROOT "${WARPSDK_ROOT}/sysroot")
+
+list(APPEND CMAKE_MODULE_PATH "${WARPSDK_ROOT}/cmake/Modules")
 
 cmake_minimum_required(VERSION 3.0.0)
 
