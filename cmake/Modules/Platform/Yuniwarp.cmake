@@ -39,14 +39,14 @@ set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
 
 # Warp32 specific variables
-set(WARP32_TARGET_TRIPLE "wasm32-warp")
-set(WARP32_THREAD_MODEL "-mthread-model posix -pthread") # Enable Pthread defines
-set(WARP32_CFLAGS_WAR "-nostdlib")
-set(WARP32_CFLAGS "${WARP32_CFLAGS_WAR} --target=${WARP32_TARGET_TRIPLE} --sysroot=${WARPSDK_SYSROOT} ${WARP32_THREAD_MODEL}")
+set(WARP32_TARGET_TRIPLE "wasm32")
+set(WARP32_THREAD_MODEL "") # Enable Pthread defines
+set(WARP32_CFLAGS_WAR "")
+set(WARP32_CFLAGS "${WARP32_CFLAGS_WAR} --target=${WARP32_TARGET_TRIPLE}")
 set(WARP32_DEFS "-D__WARP32LE__ -D__WARP32__ -D__WARP__")
 # FIXME: Per-symbol exports might be prefered -- needs .def though
 #        --Wl,--export=SYMBOL
-set(WARP32_LDFLAGS "-Wl,--no-entry -Wl,--export-dynamic")
+set(WARP32_LDFLAGS "-nostdlib -Wl,--no-entry -Wl,--export-dynamic")
 
 # Configure compiler templates
 
